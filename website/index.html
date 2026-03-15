@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Berisa Caffe — Home</title>
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="brand">
+            <img style="background: transparent;" src="images/Icons/Logo.png" alt="logo" data-aos="fade-in"
+                data-aos-duration="2000" onerror="this.style.display='none'">
+            <h3 data-aos="fade-up" data-aos-duration="2200">CAFFE</h3>
+        </div>
+
+        <div class="controls" data-aos="fade-up" data-aos-duration="2400">
+            <div class="search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                </svg>
+                <input id="searchInput" placeholder="Search pizza, burger, juice..." aria-label="Search menu" />
+            </div>
+
+            <div class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</div>
+
+            <div class="cart-icon" id="cartIcon" title="Open cart" role="button" aria-label="Open cart">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 6h15l-1.5 9h-12L6 6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+                <span class="cart-badge" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+    <!-- style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80')"> -->
+    <!-- hero -->
+    <section class="hero" id="hero">
+        <!-- <div class="bg" id="heroBg"></div> -->
+
+        <video class="bg1" src="bgvideo3.mp4" autoplay loop muted></video>
+        <video class="bg2" src="bgvideo2.mp4" autoplay loop muted></video>
+        <video class="bg3" src="bgvideo3.mp4" autoplay loop muted></video>
+
+
+
+        <!-- <div class="overlay"></div> -->
+        <div class="inner" data-aos="fade-up" data-aos-duration="2000">
+            <h1>Food that makes you smile 🍕🍔🥤</h1>
+            <p>Fresh pizza, burgers, juices & crafted drinks — prepared with care.</p>
+            <div style="margin-top:12px" data-aos="fade-up" data-aos-duration="2300">
+                <button class="small-btn"
+                    onclick="document.getElementById('categoriesWrap').scrollIntoView({behavior:'smooth'})">Explore
+                    Menu</button>
+                <button class="small-btn" id="surpriseBtn">Surprise me 🎲</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="categoriesWrap" class="categories fade-in" data-aos="fade-up" data-aos-duration="2800">
+        <button class="cat-btn active" data-cat="all" data-aos="fade-up" data-aos-duration="3100">All</button>
+        <button class="cat-btn" data-cat="fastfood" data-aos="fade-up" data-aos-duration="3200">Fast Food</button>
+        <button class="cat-btn" data-cat="drinks" data-aos="fade-up" data-aos-duration="3300">Drinks</button>
+        <button class="cat-btn" data-cat="juice" data-aos="fade-up" data-aos-duration="3400">Juice</button>
+        <button class="cat-btn" data-cat="pizza" data-aos="fade-up" data-aos-duration="3500">Pizza</button>
+    </div>
+
+    <main>
+        <section>
+            <div class="section-head">
+                <h2>Popular right now</h2>
+                <div class="sub" style="color:var(--muted)">Fan favorites — tried & loved</div>
+            </div>
+            <div id="popular" class="popular-grid"></div>
+        </section>
+
+        <section>
+            <div class="section-head">
+                <h2>Full Menu</h2>
+                <div class="sub" id="resultsText" style="color:var(--muted)">Showing all items</div>
+            </div>
+            <div id="menu" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <!-- Cart drawer (has close/back icon) -->
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+        <div class="drawer-head">
+            <div style="display:flex;align-items:center;gap:10px">
+                <button class="small-btn" id="closeCart" title="Close cart">←</button>
+                <div style="font-weight:800">Your Basket</div>
+            </div>
+            <div>
+                <button class="small-btn" id="goToOrders" title="Orders / History">History</button>
+            </div>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+            <div style="font-weight:800">Total</div>
+            <div id="cartTotal" style="font-weight:900;color:var(--green)">0 ETB</div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="checkout-btn" id="gotoCheckout">Checkout</button>
+            <button class="small-btn" id="clearCart">Clear</button>
+        </div>
+
+        <div style="margin-top:10px;color:var(--muted);font-size:13px">Payments: Bank transfer / Mobile money. Copy
+            accounts on checkout page.</div>
+    </aside>
+
+    <!-- Centered modals -->
+    <div class="modal" id="confirmModal">
+        <div class="box">
+            <h3 id="confirmTitle">Confirm</h3>
+            <p id="confirmBody"></p>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:12px"><button class="checkout-btn"
+                    id="confirmYes">Yes</button><button class="small-btn" id="confirmNo">Check again</button></div>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal">
+        <div class="box">
+            <div style="font-size:48px;color:var(--green)">✔</div>
+            <h3 id="successTitle">Order received</h3>
+            <p id="successBody">Your order is under review — thank you!</p>
+            <div style="display:flex;justify-content:center;margin-top:12px"><button class="checkout-btn"
+                    id="successDone">Done</button></div>
+        </div>
+    </div>
+
+    <div class="modal" id="viewProofModal">
+        <div class="box" id="proofBox"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <footer>
+        <hr>
+        <div class="social-media">
+
+            <p> JOIN OUR SOCIAL MEDIA</p>
+            <div class="social-link">
+                <a href="#">
+                    <img src="images/social-media/tiktok.png" alt="Tiktok"></a>
+                <a href="#">
+                    <img src="images/social-media/instagram.png" alt="Instagram"></a>
+                <a href="#">
+                    <img src="images/Icons/telegram.png" alt="Telegram"></a>
+            </div>
+        </div>
+        <div
+            style="max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <div>
+                    <span>Customer support</span><br />
+                    <video src="images/Icons/tech-support.mp4" autoplay loop>
+
+                    </video>
+                    <p>Phone:<strong> 0938995261</strong></p>
+                </div>
+
+                <div>
+                    <span>Address</span><br />
+                    <video src="images/Icons/location.mp4" autoplay loop></video>
+                    <p> Shashemene •01</p>
+                </div>
+
+            </div>
+            <div style="color:var(--muted) ;text-align: center;">• Developed by Kenenisa HD• Contact: +251 938 995 261
+                <br> ©
+                2026
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+
+</html>

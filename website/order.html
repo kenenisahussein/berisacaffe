@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>K-Tech Café — Checkout</title>
+    <link rel="stylesheet" href="css/order.css">
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="topbar">
+            <button class="back-btn-top" id="backHome">← Home</button>
+            <h1>Complete Your Order </h1>
+            <video src="images/Icons/delivery-scooter.mp4 " autoplay="true" loop></video>
+        </div>
+
+        <div id="itemsArea"></div>
+
+        <div
+            style="display:flex;justify-content:space-between;align-items:center;margin-top:8px; border: 1px solid  rgba(0, 128, 0, 0.164); padding: 4px; border-radius: 6px;">
+            <div style="color:var(--muted)">Total</div>
+            <div id="totalAmount" style="font-weight:900;color:var(--green)">0 ETB</div>
+        </div>
+
+        <div class="bank-box">
+            <strong>Bank accounts</strong>
+            <span> <span style="color: red;">⚠</span> only use one of below ⬇</span>
+            <div style="margin-top:8px">
+                <div>Commercial Bank • Kenenisa Hussein: <span id="bank_acc_1" class="bank_acc_1">1000739396224</span>
+                    <button class="back-btn js-back-copy" onclick="copyId('bank_acc_1')">Copy</button>
+                </div>
+                <hr>
+                <div>Awash Bank •kenenisa Hussein: <span id="bank_acc_2" class="bank_acc_1">1000739396224</span>
+                    <button class="back-btn js-back-copy" onclick="copyId('bank_acc_2')">Copy</button>
+                </div>
+                <hr>
+                <div>Sinqe Bank •kenenisa Hussein: <span id="bank_acc_3" class="bank_acc_1">1000739396224</span>
+                    <button class="back-btn js-back-copy" onclick="copyId('bank_acc_3')">Copy</button>
+                </div>
+                <hr>
+                <div>Dashen Bank • kenenisa Hussein: <span id="bank_acc_4" class="bank_acc_1">1000739396224</span>
+                    <button class="back-btn js-back-copy" onclick="copyId('bank_acc_4')">Copy</button>
+                </div>
+                <hr>
+                <div style="margin-top:6px">Telebirr •kenenisa Hussein:<br>
+                    <span id="bank_acc_5">+251938995261</span>
+                    <button class="back-btn" onclick="copyId('bank_acc_5')">Copy</button>
+                </div>
+                <hr>
+                <div style="margin-top:6px">CBEBirr •kenenisa Hussein:<br>
+                    <span id="bank_acc_6">+251938995261</span>
+                    <button class="back-btn" onclick="copyId('bank_acc_6')">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <form id="orderForm">
+            <label>Full Name (as ID)</label>
+            <input id="fullName" required>
+
+            <label>Phone Number</label>
+            <input id="phone" required>
+
+            <label>Delivery location (paste Google Maps link)</label>
+            <div style="display:flex;gap:8px">
+                <input id="location" placeholder="Paste maps link or address" required>
+                <button type="button" class="back-btn-top" id="getLocationBtn">Get Location</button>
+            </div>
+
+            <label>Payment method</label>
+            <select id="payMethod" required>
+                <option value="">Choose</option>
+                <option>Commercial Bank</option>
+                <option>Telebirr</option>
+                <option>CBEBirr</option>
+                <option>Awash Bank</option>
+                <option>Sinqe Bank</option>
+                <option>Dashen Bank</option>
+
+            </select>
+
+            <label>Upload payment screenshot (proof)</label>
+            <input class="proof-img" id="proof" type="file" accept="image/*" required>
+
+            <div class="note">⚠ Make sure you paid the exact total amount. File size should be reasonable (keep under
+                ~4MB).</div>
+
+            <button type="submit" class="submit">Submit Order</button>
+        </form>
+    </div>
+
+    <!-- Centered confirm modal -->
+    <div class="modal" id="confirmModal">
+        <div class="box">
+            <h3>Confirm Payment</h3>
+            <p id="confirmMsg">Are you sure you paid <strong id="confirmAmount">0 ETB</strong>?</p>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:12px"><button class="submit"
+                    id="confirmYes">Yes, I paid</button><button class="confirmNo-btn" id="confirmNo">Check
+                    again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered success modal -->
+    <div class="modal" id="successModal">
+        <div class="box">
+            <div class="success-check">✔</div>
+            <h3>Your order is under review</h3>
+            <p>We Wil Notify You When Your Order Is Ready</p>
+            <p>Thank you for choosing Berisa Caffe.</p>
+            <div style="margin-top:12px"><button class="submit" id="doneBtn">Done</button></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/order.js"></script>
+</body>
+
+</html>
