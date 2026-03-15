@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Berisa Caffe — Home</title>
 
+    <!-- AOS animations -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/index.css">
-
+    <!-- Your main CSS -->
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
 
     <header>
         <div class="brand">
-            <img style="background: transparent;" src="images/Icons/Logo.png" alt="logo" data-aos="fade-in"
+            <img style="background: transparent;" src="/images/Icons/Logo.png" alt="logo" data-aos="fade-in"
                 data-aos-duration="2000" onerror="this.style.display='none'">
             <h3 data-aos="fade-up" data-aos-duration="2200">CAFFE</h3>
         </div>
@@ -38,25 +39,21 @@
             </div>
         </div>
     </header>
-    <!-- style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80')"> -->
-    <!-- hero -->
+
+    <!-- Hero section -->
     <section class="hero" id="hero">
-        <!-- <div class="bg" id="heroBg"></div> -->
+        <video class="bg1" src="/images/bgvideo3.mp4" autoplay loop muted></video>
+        <video class="bg2" src="/images/bgvideo2.mp4" autoplay loop muted></video>
+        <video class="bg3" src="/images/bgvideo3.mp4" autoplay loop muted></video>
 
-        <video class="bg1" src="bgvideo3.mp4" autoplay loop muted></video>
-        <video class="bg2" src="bgvideo2.mp4" autoplay loop muted></video>
-        <video class="bg3" src="bgvideo3.mp4" autoplay loop muted></video>
-
-
-
-        <!-- <div class="overlay"></div> -->
         <div class="inner" data-aos="fade-up" data-aos-duration="2000">
             <h1>Food that makes you smile 🍕🍔🥤</h1>
             <p>Fresh pizza, burgers, juices & crafted drinks — prepared with care.</p>
             <div style="margin-top:12px" data-aos="fade-up" data-aos-duration="2300">
                 <button class="small-btn"
-                    onclick="document.getElementById('categoriesWrap').scrollIntoView({behavior:'smooth'})">Explore
-                    Menu</button>
+                    onclick="document.getElementById('categoriesWrap').scrollIntoView({behavior:'smooth'})">
+                    Explore Menu
+                </button>
                 <button class="small-btn" id="surpriseBtn">Surprise me 🎲</button>
             </div>
         </div>
@@ -88,7 +85,7 @@
         </section>
     </main>
 
-    <!-- Cart drawer (has close/back icon) -->
+    <!-- Cart drawer -->
     <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
         <div class="drawer-head">
             <div style="display:flex;align-items:center;gap:10px">
@@ -112,17 +109,18 @@
             <button class="small-btn" id="clearCart">Clear</button>
         </div>
 
-        <div style="margin-top:10px;color:var(--muted);font-size:13px">Payments: Bank transfer / Mobile money. Copy
-            accounts on checkout page.</div>
+        <div style="margin-top:10px;color:var(--muted);font-size:13px">Payments: Bank transfer / Mobile money. Copy accounts on checkout page.</div>
     </aside>
 
-    <!-- Centered modals -->
+    <!-- Modals -->
     <div class="modal" id="confirmModal">
         <div class="box">
             <h3 id="confirmTitle">Confirm</h3>
             <p id="confirmBody"></p>
-            <div style="display:flex;gap:10px;justify-content:center;margin-top:12px"><button class="checkout-btn"
-                    id="confirmYes">Yes</button><button class="small-btn" id="confirmNo">Check again</button></div>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:12px">
+                <button class="checkout-btn" id="confirmYes">Yes</button>
+                <button class="small-btn" id="confirmNo">Check again</button>
+            </div>
         </div>
     </div>
 
@@ -131,8 +129,7 @@
             <div style="font-size:48px;color:var(--green)">✔</div>
             <h3 id="successTitle">Order received</h3>
             <p id="successBody">Your order is under review — thank you!</p>
-            <div style="display:flex;justify-content:center;margin-top:12px"><button class="checkout-btn"
-                    id="successDone">Done</button></div>
+            <div style="display:flex;justify-content:center;margin-top:12px"><button class="checkout-btn" id="successDone">Done</button></div>
         </div>
     </div>
 
@@ -145,45 +142,33 @@
     <footer>
         <hr>
         <div class="social-media">
-
-            <p> JOIN OUR SOCIAL MEDIA</p>
+            <p>JOIN OUR SOCIAL MEDIA</p>
             <div class="social-link">
-                <a href="#">
-                    <img src="images/social-media/tiktok.png" alt="Tiktok"></a>
-                <a href="#">
-                    <img src="images/social-media/instagram.png" alt="Instagram"></a>
-                <a href="#">
-                    <img src="images/Icons/telegram.png" alt="Telegram"></a>
+                <a href="#"><img src="/images/social-media/tiktok.png" alt="Tiktok"></a>
+                <a href="#"><img src="/images/social-media/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="/images/Icons/telegram.png" alt="Telegram"></a>
             </div>
         </div>
-        <div
-            style="max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <div style="max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+            <div style="display:flex;align-items:center;gap:10px;">
                 <div>
-                    <span>Customer support</span><br />
-                    <video src="images/Icons/tech-support.mp4" autoplay loop>
-
-                    </video>
-                    <p>Phone:<strong> 0938995261</strong></p>
+                    <span>Customer support</span><br>
+                    <video src="/images/Icons/tech-support.mp4" autoplay loop></video>
+                    <p>Phone: <strong>0938995261</strong></p>
                 </div>
-
                 <div>
-                    <span>Address</span><br />
-                    <video src="images/Icons/location.mp4" autoplay loop></video>
-                    <p> Shashemene •01</p>
+                    <span>Address</span><br>
+                    <video src="/images/Icons/location.mp4" autoplay loop></video>
+                    <p>Shashemene •01</p>
                 </div>
-
             </div>
-            <div style="color:var(--muted) ;text-align: center;">• Developed by Kenenisa HD• Contact: +251 938 995 261
-                <br> ©
-                2026
-            </div>
+            <div style="color:var(--muted);text-align:center;">• Developed by Kenenisa HD • Contact: +251 938 995 261<br>© 2026</div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script type="module" src="/js/index.js"></script>
 
-    <script type="module" src="public/js/index.js"></script>
 </body>
-
 </html>
